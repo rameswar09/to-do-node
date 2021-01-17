@@ -38,6 +38,7 @@ const addBucket = async (req, res) => {
 
     return res.json(formError("", "200", newBucket));
   } catch (e) {
+    console.log("Error while add one bucket", e);
     return res.json(formError(e, "400", {}));
   }
 };
@@ -80,6 +81,7 @@ const getAll = async (req, res) => {
     let getAllData = await dbCommon.getData(bucketModel, {});
     return res.json(formError("", "200", getAllData));
   } catch (e) {
+    console.log("Error while get allbucket", e);
     res.json(formError(e, "400", {}));
   }
 };
